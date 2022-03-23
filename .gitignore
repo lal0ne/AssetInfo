@@ -6,6 +6,10 @@
 *.dylib
 *.txt
 
+### conf ###
+config.yml
+adm.ini
+
 # Test binary, built with `go test -c`
 *.test
 
