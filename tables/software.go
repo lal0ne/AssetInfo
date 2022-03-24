@@ -13,21 +13,22 @@ func GetSoftwareTable(ctx *context.Context) table.Table {
 
 	info := software.GetInfo().HideFilterArea()
 
-	info.AddField("Id", "id", db.Int).
-		FieldFilterable()
-	info.AddField("Name", "name", db.Varchar)
-	info.AddField("Created_at", "created_at", db.Timestamp)
-	info.AddField("Updated_at", "updated_at", db.Timestamp)
+	info.SetSortAsc()
 
-	info.SetTable("software").SetTitle("Software").SetDescription("Software")
+	info.AddField("ID", "id", db.Int).FieldSortable()
+	info.AddField("名称", "name", db.Varchar)
+	info.AddField("创建日期", "created_at", db.Timestamp).FieldHide()
+	info.AddField("更新日期", "updated_at", db.Timestamp)
+
+	info.SetTable("software").SetTitle("软件").SetDescription("软件名称")
 
 	formList := software.GetForm()
-	formList.AddField("Id", "id", db.Int, form.Default)
-	formList.AddField("Name", "name", db.Varchar, form.Text)
-	formList.AddField("Created_at", "created_at", db.Timestamp, form.Datetime)
-	formList.AddField("Updated_at", "updated_at", db.Timestamp, form.Datetime)
+	formList.AddField("ID", "id", db.Int, form.Default).FieldDisplayButCanNotEditWhenUpdate().FieldNotAllowAdd()
+	formList.AddField("名称", "name", db.Varchar, form.Text)
+	formList.AddField("创建日期", "created_at", db.Timestamp, form.Datetime).FieldDisplayButCanNotEditWhenUpdate().FieldNotAllowAdd()
+	formList.AddField("更新日期", "updated_at", db.Timestamp, form.Datetime).FieldNotAllowAdd()
 
-	formList.SetTable("software").SetTitle("Software").SetDescription("Software")
+	formList.SetTable("software").SetTitle("软件").SetDescription("软件名称")
 
 	return software
 }

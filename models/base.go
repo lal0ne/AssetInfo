@@ -8,6 +8,8 @@ import (
 var (
 	orm *gorm.DB
 	err error
+	// 数据库全局连接
+	GlobalConn db.Connection
 )
 
 func Init(c db.Connection) {
@@ -16,4 +18,6 @@ func Init(c db.Connection) {
 	if err != nil {
 		panic("initialize orm failed")
 	}
+
+	GlobalConn = c
 }

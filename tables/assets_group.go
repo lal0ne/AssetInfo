@@ -13,21 +13,22 @@ func GetAssetsGroupTable(ctx *context.Context) table.Table {
 
 	info := assetsGroup.GetInfo().HideFilterArea()
 
-	info.AddField("Id", "id", db.Int).
-		FieldFilterable()
-	info.AddField("Group", "group", db.Varchar)
-	info.AddField("Created_at", "created_at", db.Timestamp)
-	info.AddField("Updated_at", "updated_at", db.Timestamp)
+	info.SetSortAsc()
 
-	info.SetTable("assets_group").SetTitle("AssetsGroup").SetDescription("AssetsGroup")
+	info.AddField("ID", "id", db.Int).FieldSortable()
+	info.AddField("资产组", "group", db.Varchar)
+	info.AddField("创建日期", "created_at", db.Timestamp).FieldHide()
+	info.AddField("更新日期", "updated_at", db.Timestamp)
+
+	info.SetTable("assets_group").SetTitle("资产组").SetDescription("资产组类别")
 
 	formList := assetsGroup.GetForm()
-	formList.AddField("Id", "id", db.Int, form.Default)
-	formList.AddField("Group", "group", db.Varchar, form.Text)
-	formList.AddField("Created_at", "created_at", db.Timestamp, form.Datetime)
-	formList.AddField("Updated_at", "updated_at", db.Timestamp, form.Datetime)
+	formList.AddField("ID", "id", db.Int, form.Default).FieldDisplayButCanNotEditWhenUpdate().FieldNotAllowAdd()
+	formList.AddField("资产组", "group", db.Varchar, form.Text)
+	formList.AddField("创建日期", "created_at", db.Timestamp, form.Datetime).FieldDisplayButCanNotEditWhenUpdate().FieldNotAllowAdd()
+	formList.AddField("更新日期", "updated_at", db.Timestamp, form.Datetime).FieldNotAllowAdd()
 
-	formList.SetTable("assets_group").SetTitle("AssetsGroup").SetDescription("AssetsGroup")
+	formList.SetTable("assets_group").SetTitle("资产组").SetDescription("资产组类别")
 
 	return assetsGroup
 }

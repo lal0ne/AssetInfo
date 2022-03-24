@@ -13,21 +13,23 @@ func GetProtocolsTable(ctx *context.Context) table.Table {
 
 	info := protocols.GetInfo().HideFilterArea()
 
-	info.AddField("Id", "id", db.Int).
-		FieldFilterable()
-	info.AddField("Protocol", "protocol", db.Varchar)
-	info.AddField("Created_at", "created_at", db.Timestamp)
-	info.AddField("Updated_at", "updated_at", db.Timestamp)
+	// 顺序
+	info.SetSortAsc()
 
-	info.SetTable("protocols").SetTitle("Protocols").SetDescription("Protocols")
+	info.AddField("ID", "id", db.Int).FieldSortable()
+	info.AddField("协议", "protocol", db.Varchar)
+	info.AddField("创建日期", "created_at", db.Timestamp).FieldHide()
+	info.AddField("更新日期", "updated_at", db.Timestamp)
+
+	info.SetTable("protocols").SetTitle("协议").SetDescription("登录协议类别")
 
 	formList := protocols.GetForm()
-	formList.AddField("Id", "id", db.Int, form.Default)
-	formList.AddField("Protocol", "protocol", db.Varchar, form.Text)
-	formList.AddField("Created_at", "created_at", db.Timestamp, form.Datetime)
-	formList.AddField("Updated_at", "updated_at", db.Timestamp, form.Datetime)
+	formList.AddField("ID", "id", db.Int, form.Default).FieldDisplayButCanNotEditWhenUpdate().FieldNotAllowAdd()
+	formList.AddField("协议", "protocol", db.Varchar, form.Text)
+	formList.AddField("创建日期", "created_at", db.Timestamp, form.Datetime).FieldDisplayButCanNotEditWhenUpdate().FieldNotAllowAdd()
+	formList.AddField("更新日期", "updated_at", db.Timestamp, form.Datetime).FieldNotAllowAdd()
 
-	formList.SetTable("protocols").SetTitle("Protocols").SetDescription("Protocols")
+	formList.SetTable("protocols").SetTitle("协议").SetDescription("登录协议类别")
 
 	return protocols
 }

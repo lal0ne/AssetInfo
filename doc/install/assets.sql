@@ -30,7 +30,7 @@ CREATE TABLE `assets`  (
   `passwd` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '密码',
   `protocol_id` int(11) NULL DEFAULT NULL COMMENT '协议ID',
   `group_id` int(11) NULL DEFAULT NULL COMMENT '分组ID',
-  `created_at` timestamp(0) NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
+  `created_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '创建时间',
   `updated_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
@@ -46,7 +46,7 @@ DROP TABLE IF EXISTS `assets_group`;
 CREATE TABLE `assets_group`  (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `group` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '分组',
-  `created_at` timestamp(0) NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
+  `created_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '创建时间',
   `updated_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `group`(`group`) USING BTREE
@@ -480,7 +480,7 @@ CREATE TABLE `leak`  (
   `assets_id` int(11) NULL DEFAULT NULL COMMENT '资产ID',
   `vul_id` int(11) NULL DEFAULT NULL COMMENT '漏洞ID',
   `result` int(2) NULL DEFAULT NULL COMMENT '结果',
-  `created_at` timestamp(0) NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
+  `created_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '创建时间',
   `updated_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
@@ -496,7 +496,7 @@ DROP TABLE IF EXISTS `protocols`;
 CREATE TABLE `protocols`  (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `protocol` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '协议',
-  `created_at` timestamp(0) NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
+  `created_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '创建时间',
   `updated_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `protocol`(`protocol`) USING BTREE
@@ -513,7 +513,7 @@ DROP TABLE IF EXISTS `software`;
 CREATE TABLE `software`  (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '名称',
-  `created_at` timestamp(0) NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
+  `created_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '创建时间',
   `updated_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `name`(`name`) USING BTREE
@@ -532,7 +532,7 @@ CREATE TABLE `software_list`  (
   `assets_id` int(11) NULL DEFAULT NULL COMMENT '资产ID',
   `software_id` int(11) NULL DEFAULT NULL COMMENT '软件ID',
   `version` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '版本',
-  `created_at` timestamp(0) NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
+  `created_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '创建时间',
   `updated_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
@@ -549,7 +549,7 @@ CREATE TABLE `vul`  (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '编号',
   `scope` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '影响范围',
-  `created_at` timestamp(0) NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
+  `created_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '创建时间',
   `updated_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `name`(`name`) USING BTREE
