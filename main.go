@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"io/ioutil"
 	"log"
 	"os"
@@ -49,7 +50,10 @@ func startServer() {
 
 	models.Init(eng.MysqlConnection())
 
-	_ = r.Run(":80")
+	var serve string
+	flag.StringVar(&serve, "serve", ":80", "服务地址及端口")
+	flag.Parse()
+	_ = r.Run(serve)
 
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, os.Interrupt)
