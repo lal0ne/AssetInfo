@@ -49,7 +49,7 @@ func GetSmallboxTable(ctx *context.Context) table.Table {
 	formList.AddField("标题", "title", db.Varchar, form.Text)
 	formList.AddField("ICON", "icon", db.Varchar, form.Text).FieldHelpMsg("SmallBox中Icon属性")
 	formList.AddField("URL", "url", db.Varchar, form.Text)
-	formList.AddField("颜色", "color", db.Varchar, form.Color)
+	formList.AddField("颜色", "color", db.Varchar, form.Text)
 	formList.AddField("数据表", "table", db.Varchar, form.Text)
 	formList.AddField("查询", "query", db.Varchar, form.Text).FieldHelpMsg("针对以上数据库的查询语句，默认为空")
 	formList.AddField("状态", "status", db.Tinyint, form.Radio).
