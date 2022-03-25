@@ -69,6 +69,10 @@ func GetLeakTable(ctx *context.Context) table.Table {
 		{Value: "1", Text: "存在"},
 		{Value: "2", Text: "不存在"},
 		{Value: "3", Text: "待确认"},
+	}).FieldFilterable(types.FilterType{FormType: form.SelectSingle}).FieldFilterOptions(types.FieldOptions{
+		{Value: "1", Text: "存在"},
+		{Value: "2", Text: "不存在"},
+		{Value: "3", Text: "待确认"},
 	})
 	info.AddField("创建日期", "created_at", db.Timestamp).FieldHide()
 	info.AddField("更新日期", "updated_at", db.Timestamp)
