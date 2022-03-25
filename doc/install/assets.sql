@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : 10.10.10.226
+ Source Server         : XXX.XXX.XXX.XXX
  Source Server Type    : MySQL
  Source Server Version : 100328
- Source Host           : 10.10.10.226:3306
+ Source Host           : XXX.XXX.XXX.XXX:3306
  Source Schema         : assets
 
  Target Server Type    : MySQL
  Target Server Version : 100328
  File Encoding         : 65001
 
- Date: 23/03/2022 16:30:14
+ Date: 25/03/2022 15:12:49
 */
 
 SET NAMES utf8mb4;
@@ -28,16 +28,12 @@ CREATE TABLE `assets`  (
   `ip` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'IP',
   `uname` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '账号',
   `passwd` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '密码',
-  `protocol_id` int(11) NULL DEFAULT NULL COMMENT '协议ID',
   `group_id` int(11) NULL DEFAULT NULL COMMENT '分组ID',
+  `protocol_id` int(11) NULL DEFAULT NULL COMMENT '协议ID',
   `created_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '创建时间',
   `updated_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of assets
--- ----------------------------
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for assets_group
@@ -50,11 +46,7 @@ CREATE TABLE `assets_group`  (
   `updated_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `group`(`group`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of assets_group
--- ----------------------------
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for goadmin_menu
@@ -74,7 +66,7 @@ CREATE TABLE `goadmin_menu`  (
   `created_at` timestamp(0) NULL DEFAULT current_timestamp(0),
   `updated_at` timestamp(0) NULL DEFAULT current_timestamp(0),
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of goadmin_menu
@@ -90,11 +82,13 @@ INSERT INTO `goadmin_menu` VALUES (8, 0, 0, 2, '资产信息', 'fa-bars', '', '�
 INSERT INTO `goadmin_menu` VALUES (9, 8, 0, 2, '资产', 'fa-book', '/info/assets', '', '', NULL, '2022-03-23 16:18:53', '2022-03-23 16:18:53');
 INSERT INTO `goadmin_menu` VALUES (10, 8, 0, 2, '资产组', 'fa-object-group', '/info/assets_group', '', '', NULL, '2022-03-23 16:19:45', '2022-03-23 16:19:45');
 INSERT INTO `goadmin_menu` VALUES (11, 8, 0, 2, '协议', 'fa-product-hunt', '/info/protocols', '', '', NULL, '2022-03-23 16:20:39', '2022-03-23 16:20:39');
-INSERT INTO `goadmin_menu` VALUES (12, 8, 0, 2, '软件信息', 'fa-bookmark', '/info/software_list', '软件信息', '', NULL, '2022-03-23 16:24:05', '2022-03-23 16:24:05');
-INSERT INTO `goadmin_menu` VALUES (13, 8, 0, 2, '软件', 'fa-bar-chart', '/info/software', '', '', NULL, '2022-03-23 16:24:58', '2022-03-23 16:24:58');
-INSERT INTO `goadmin_menu` VALUES (14, 0, 0, 2, '漏洞检测', 'fa-bug', '', '漏洞检测', '', NULL, '2022-03-23 16:25:50', '2022-03-23 16:25:50');
-INSERT INTO `goadmin_menu` VALUES (15, 14, 0, 2, '漏洞', 'fa-wrench', '/info/vul', '', '', NULL, '2022-03-23 16:27:06', '2022-03-23 16:27:06');
-INSERT INTO `goadmin_menu` VALUES (16, 14, 0, 2, '检测结果', 'fa-resistance', '/info/leak', '', '', NULL, '2022-03-23 16:27:54', '2022-03-23 16:27:54');
+INSERT INTO `goadmin_menu` VALUES (12, 14, 0, 2, '软件信息', 'fa-bookmark', '/info/software_list', '软件信息', '', NULL, '2022-03-23 16:24:05', '2022-03-24 14:41:47');
+INSERT INTO `goadmin_menu` VALUES (13, 14, 0, 2, '软件', 'fa-bar-chart', '/info/software', '', '', NULL, '2022-03-23 16:24:58', '2022-03-24 14:41:54');
+INSERT INTO `goadmin_menu` VALUES (14, 0, 0, 2, '软件信息', 'fa-book', '', '软件信息', '', NULL, '2022-03-23 16:25:50', '2022-03-24 14:42:45');
+INSERT INTO `goadmin_menu` VALUES (15, 17, 0, 2, '漏洞', 'fa-wrench', '/info/vul', '', '', NULL, '2022-03-23 16:27:06', '2022-03-24 14:41:29');
+INSERT INTO `goadmin_menu` VALUES (16, 17, 0, 2, '检测结果', 'fa-resistance', '/info/leak', '', '', NULL, '2022-03-23 16:27:54', '2022-03-24 14:41:35');
+INSERT INTO `goadmin_menu` VALUES (17, 0, 0, 2, '漏洞检测', 'fa-bug', '', '', '', NULL, '2022-03-24 14:41:16', '2022-03-24 14:41:16');
+INSERT INTO `goadmin_menu` VALUES (18, 0, 0, 2, '设置', 'fa-cog', '/info/smallbox', '', '', NULL, '2022-03-25 11:15:29', '2022-03-25 14:31:10');
 
 -- ----------------------------
 -- Table structure for goadmin_operation_log
@@ -111,50 +105,7 @@ CREATE TABLE `goadmin_operation_log`  (
   `updated_at` timestamp(0) NULL DEFAULT current_timestamp(0),
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `admin_operation_log_user_id_index`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 40 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of goadmin_operation_log
--- ----------------------------
-INSERT INTO `goadmin_operation_log` VALUES (1, 1, '/admin', 'GET', '127.0.0.1', '', '2022-03-23 16:12:05', '2022-03-23 16:12:05');
-INSERT INTO `goadmin_operation_log` VALUES (2, 1, '/admin/info/site/edit', 'GET', '127.0.0.1', '', '2022-03-23 16:12:17', '2022-03-23 16:12:17');
-INSERT INTO `goadmin_operation_log` VALUES (3, 1, '/admin/info/generate/new', 'GET', '127.0.0.1', '', '2022-03-23 16:12:22', '2022-03-23 16:12:22');
-INSERT INTO `goadmin_operation_log` VALUES (4, 1, '/admin/plugins', 'GET', '127.0.0.1', '', '2022-03-23 16:12:25', '2022-03-23 16:12:25');
-INSERT INTO `goadmin_operation_log` VALUES (5, 1, '/admin/menu', 'GET', '127.0.0.1', '', '2022-03-23 16:12:38', '2022-03-23 16:12:38');
-INSERT INTO `goadmin_operation_log` VALUES (6, 1, '/admin/menu/new', 'POST', '127.0.0.1', '{\"__go_admin_previous_\":[\"/admin/menu\"],\"__go_admin_t_\":[\"ba57bee4-3021-456e-aea8-100f1e3536e5\"],\"header\":[\"资产信息\"],\"icon\":[\"fa-bars\"],\"parent_id\":[\"0\"],\"plugin_name\":[\"\"],\"roles[]\":[\"1\"],\"title\":[\"资产信息\"],\"uri\":[\"\"]}', '2022-03-23 16:15:29', '2022-03-23 16:15:29');
-INSERT INTO `goadmin_operation_log` VALUES (7, 1, '/admin/menu', 'GET', '127.0.0.1', '', '2022-03-23 16:15:32', '2022-03-23 16:15:32');
-INSERT INTO `goadmin_operation_log` VALUES (8, 1, '/admin', 'GET', '127.0.0.1', '', '2022-03-23 16:15:38', '2022-03-23 16:15:38');
-INSERT INTO `goadmin_operation_log` VALUES (9, 1, '/admin/menu', 'GET', '127.0.0.1', '', '2022-03-23 16:15:45', '2022-03-23 16:15:45');
-INSERT INTO `goadmin_operation_log` VALUES (10, 1, '/admin/menu/new', 'POST', '127.0.0.1', '{\"__go_admin_previous_\":[\"/admin/menu\"],\"__go_admin_t_\":[\"5932351e-0e64-42c8-b83c-d6c9c9b519d9\"],\"header\":[\"\"],\"icon\":[\"fa-book\"],\"parent_id\":[\"8\"],\"plugin_name\":[\"\"],\"roles[]\":[\"1\"],\"title\":[\"资产\"],\"uri\":[\"/info/assets\"]}', '2022-03-23 16:18:53', '2022-03-23 16:18:53');
-INSERT INTO `goadmin_operation_log` VALUES (11, 1, '/admin/menu/new', 'POST', '127.0.0.1', '{\"__go_admin_previous_\":[\"/admin/menu\"],\"__go_admin_t_\":[\"470c681e-1a0d-493d-9b6c-c8cda3c63fbe\"],\"header\":[\"\"],\"icon\":[\"fa-object-group\"],\"parent_id\":[\"8\"],\"plugin_name\":[\"\"],\"roles[]\":[\"1\"],\"title\":[\"资产组\"],\"uri\":[\"/info/assets_group\"]}', '2022-03-23 16:19:45', '2022-03-23 16:19:45');
-INSERT INTO `goadmin_operation_log` VALUES (12, 1, '/admin/menu/new', 'POST', '127.0.0.1', '{\"__go_admin_previous_\":[\"/admin/menu\"],\"__go_admin_t_\":[\"ed01736b-9652-4b51-8417-8e9f5f785052\"],\"header\":[\"\"],\"icon\":[\"fa-product-hunt\"],\"parent_id\":[\"8\"],\"plugin_name\":[\"\"],\"roles[]\":[\"1\"],\"title\":[\"协议\"],\"uri\":[\"/info/protocols\"]}', '2022-03-23 16:20:39', '2022-03-23 16:20:39');
-INSERT INTO `goadmin_operation_log` VALUES (13, 1, '/admin', 'GET', '127.0.0.1', '', '2022-03-23 16:20:42', '2022-03-23 16:20:42');
-INSERT INTO `goadmin_operation_log` VALUES (14, 1, '/admin', 'GET', '127.0.0.1', '', '2022-03-23 16:20:43', '2022-03-23 16:20:43');
-INSERT INTO `goadmin_operation_log` VALUES (15, 1, '/admin', 'GET', '127.0.0.1', '', '2022-03-23 16:20:44', '2022-03-23 16:20:44');
-INSERT INTO `goadmin_operation_log` VALUES (16, 1, '/admin/menu', 'GET', '127.0.0.1', '', '2022-03-23 16:20:58', '2022-03-23 16:20:58');
-INSERT INTO `goadmin_operation_log` VALUES (17, 1, '/admin/menu/new', 'POST', '127.0.0.1', '{\"__go_admin_previous_\":[\"/admin/menu\"],\"__go_admin_t_\":[\"ebbb1152-539d-4ffc-b9e9-abbf956b58e0\"],\"header\":[\"软件信息\"],\"icon\":[\"fa-bookmark\"],\"parent_id\":[\"8\"],\"plugin_name\":[\"\"],\"roles[]\":[\"1\"],\"title\":[\"软件信息\"],\"uri\":[\"/info/software_list\"]}', '2022-03-23 16:24:05', '2022-03-23 16:24:05');
-INSERT INTO `goadmin_operation_log` VALUES (18, 1, '/admin/menu/new', 'POST', '127.0.0.1', '{\"__go_admin_previous_\":[\"/admin/menu\"],\"__go_admin_t_\":[\"0f12df6c-7123-4df7-95f2-c1cf261d8eb4\"],\"header\":[\"\"],\"icon\":[\"fa-bar-chart\"],\"parent_id\":[\"8\"],\"plugin_name\":[\"\"],\"roles[]\":[\"1\"],\"title\":[\"软件\"],\"uri\":[\"/info/software\"]}', '2022-03-23 16:24:58', '2022-03-23 16:24:58');
-INSERT INTO `goadmin_operation_log` VALUES (19, 1, '/admin/menu/new', 'POST', '127.0.0.1', '{\"__go_admin_previous_\":[\"/admin/menu\"],\"__go_admin_t_\":[\"99a6f6c6-09e1-47ae-8f08-87b40da6f452\"],\"header\":[\"漏洞检测\"],\"icon\":[\"fa-bug\"],\"parent_id\":[\"0\"],\"plugin_name\":[\"\"],\"roles[]\":[\"1\"],\"title\":[\"漏洞检测\"],\"uri\":[\"\"]}', '2022-03-23 16:25:50', '2022-03-23 16:25:50');
-INSERT INTO `goadmin_operation_log` VALUES (20, 1, '/admin/menu/new', 'POST', '127.0.0.1', '{\"__go_admin_previous_\":[\"/admin/menu\"],\"__go_admin_t_\":[\"e3d82328-7a52-470c-ad76-97e50bc83414\"],\"header\":[\"\"],\"icon\":[\"fa-wrench\"],\"parent_id\":[\"14\"],\"plugin_name\":[\"\"],\"roles[]\":[\"1\"],\"title\":[\"漏洞\"],\"uri\":[\"/info/vul\"]}', '2022-03-23 16:27:06', '2022-03-23 16:27:06');
-INSERT INTO `goadmin_operation_log` VALUES (21, 1, '/admin/menu/new', 'POST', '127.0.0.1', '{\"__go_admin_previous_\":[\"/admin/menu\"],\"__go_admin_t_\":[\"5f58c16a-dc1c-4a71-8ba4-6ab28907c13f\"],\"header\":[\"\"],\"icon\":[\"fa-resistance\"],\"parent_id\":[\"14\"],\"plugin_name\":[\"\"],\"roles[]\":[\"1\"],\"title\":[\"检测结果\"],\"uri\":[\"/info/leak\"]}', '2022-03-23 16:27:55', '2022-03-23 16:27:55');
-INSERT INTO `goadmin_operation_log` VALUES (22, 1, '/admin/menu', 'GET', '127.0.0.1', '', '2022-03-23 16:27:59', '2022-03-23 16:27:59');
-INSERT INTO `goadmin_operation_log` VALUES (23, 1, '/admin/info/assets', 'GET', '127.0.0.1', '', '2022-03-23 16:28:03', '2022-03-23 16:28:03');
-INSERT INTO `goadmin_operation_log` VALUES (24, 1, '/admin/info/assets_group', 'GET', '127.0.0.1', '', '2022-03-23 16:28:05', '2022-03-23 16:28:05');
-INSERT INTO `goadmin_operation_log` VALUES (25, 1, '/admin/info/protocols', 'GET', '127.0.0.1', '', '2022-03-23 16:28:06', '2022-03-23 16:28:06');
-INSERT INTO `goadmin_operation_log` VALUES (26, 1, '/admin/info/software_list', 'GET', '127.0.0.1', '', '2022-03-23 16:28:06', '2022-03-23 16:28:06');
-INSERT INTO `goadmin_operation_log` VALUES (27, 1, '/admin/info/software', 'GET', '127.0.0.1', '', '2022-03-23 16:28:07', '2022-03-23 16:28:07');
-INSERT INTO `goadmin_operation_log` VALUES (28, 1, '/admin/info/vul', 'GET', '127.0.0.1', '', '2022-03-23 16:28:09', '2022-03-23 16:28:09');
-INSERT INTO `goadmin_operation_log` VALUES (29, 1, '/admin/info/leak', 'GET', '127.0.0.1', '', '2022-03-23 16:28:10', '2022-03-23 16:28:10');
-INSERT INTO `goadmin_operation_log` VALUES (30, 1, '/admin/info/site/edit', 'GET', '127.0.0.1', '', '2022-03-23 16:28:18', '2022-03-23 16:28:18');
-INSERT INTO `goadmin_operation_log` VALUES (31, 1, '/admin/edit/site', 'POST', '127.0.0.1', '{\"__checkbox__debug\":[\"on\"],\"access_assets_log_off\":[\"false\"],\"access_log_off\":[\"false\"],\"access_log_path\":[\"E:/github/AssetInfo/logs/access.log\"],\"allow_del_operation_log\":[\"false\"],\"animation_delay\":[\"0.00\"],\"animation_duration\":[\"0.00\"],\"animation_type\":[\"\"],\"asset_url\":[\"\"],\"bootstrap_file_path\":[\"E:/github/AssetInfo/bootstrap.go\"],\"color_scheme\":[\"skin-black\"],\"custom_403_html\":[\"\"],\"custom_404_html\":[\"\"],\"custom_500_html\":[\"\"],\"custom_foot_html\":[\"\"],\"custom_head_html\":[\"\"],\"debug\":[\"true\"],\"env\":[\"local\"],\"error_log_off\":[\"false\"],\"error_log_path\":[\"E:/github/AssetInfo/logs/error.log\"],\"extra\":[\"\"],\"file_upload_engine\":[\"{\\\"name\\\":\\\"local\\\"}\"],\"footer_info\":[\"\"],\"go_mod_file_path\":[\"E:/github/AssetInfo/go.mod\"],\"hide_app_info_entrance\":[\"false\"],\"hide_config_center_entrance\":[\"false\"],\"hide_plugin_entrance\":[\"false\"],\"hide_tool_entrance\":[\"false\"],\"id\":[\"1\"],\"info_log_off\":[\"false\"],\"info_log_path\":[\"E:/github/AssetInfo/logs/info.log\"],\"language\":[\"zh\"],\"logger_encoder_caller\":[\"full\"],\"logger_encoder_caller_key\":[\"caller\"],\"logger_encoder_duration\":[\"string\"],\"logger_encoder_encoding\":[\"console\"],\"logger_encoder_level\":[\"capitalColor\"],\"logger_encoder_level_key\":[\"level\"],\"logger_encoder_message_key\":[\"msg\"],\"logger_encoder_name_key\":[\"logger\"],\"logger_encoder_stacktrace_key\":[\"stacktrace\"],\"logger_encoder_time\":[\"iso8601\"],\"logger_encoder_time_key\":[\"ts\"],\"logger_level\":[\"0\"],\"logger_rotate_compress\":[\"false\"],\"logger_rotate_max_age\":[\"30\"],\"logger_rotate_max_backups\":[\"5\"],\"logger_rotate_max_size\":[\"10\"],\"login_logo\":[\"\"],\"login_title\":[\"GoAdmin\"],\"logo\":[\"\\u003cb\\u003eGo\\u003c/b\\u003eAdmin\"],\"mini_logo\":[\"\\u003cb\\u003eG\\u003c/b\\u003eA\"],\"no_limit_login_ip\":[\"false\"],\"operation_log_off\":[\"false\"],\"session_life_time\":[\"72000\"],\"sql_log\":[\"false\"],\"theme\":[\"adminlte\"],\"title\":[\"GoAdmin\"]}', '2022-03-23 16:28:31', '2022-03-23 16:28:31');
-INSERT INTO `goadmin_operation_log` VALUES (32, 1, '/admin/info/site', 'GET', '127.0.0.1', '', '2022-03-23 16:28:32', '2022-03-23 16:28:32');
-INSERT INTO `goadmin_operation_log` VALUES (33, 1, '/admin/info/site/edit', 'GET', '127.0.0.1', '', '2022-03-23 16:28:32', '2022-03-23 16:28:32');
-INSERT INTO `goadmin_operation_log` VALUES (34, 1, '/admin/edit/site', 'POST', '127.0.0.1', '{\"__checkbox__debug\":[\"on\"],\"access_assets_log_off\":[\"false\"],\"access_log_off\":[\"false\"],\"access_log_path\":[\"E:/github/AssetInfo/logs/access.log\"],\"allow_del_operation_log\":[\"false\"],\"animation_delay\":[\"0.00\"],\"animation_duration\":[\"0.00\"],\"animation_type\":[\"\"],\"asset_url\":[\"\"],\"bootstrap_file_path\":[\"E:/github/AssetInfo/bootstrap.go\"],\"color_scheme\":[\"skin-black\"],\"custom_403_html\":[\"\"],\"custom_404_html\":[\"\"],\"custom_500_html\":[\"\"],\"custom_foot_html\":[\"\"],\"custom_head_html\":[\"\"],\"debug\":[\"true\"],\"env\":[\"local\"],\"error_log_off\":[\"false\"],\"error_log_path\":[\"E:/github/AssetInfo/logs/error.log\"],\"extra\":[\"\"],\"file_upload_engine\":[\"{\\\"name\\\":\\\"local\\\"}\"],\"footer_info\":[\"\"],\"go_mod_file_path\":[\"E:/github/AssetInfo/go.mod\"],\"hide_app_info_entrance\":[\"false\"],\"hide_config_center_entrance\":[\"false\"],\"hide_plugin_entrance\":[\"false\"],\"hide_tool_entrance\":[\"false\"],\"id\":[\"1\"],\"info_log_off\":[\"false\"],\"info_log_path\":[\"E:/github/AssetInfo/logs/info.log\"],\"language\":[\"zh\"],\"logger_encoder_caller\":[\"full\"],\"logger_encoder_caller_key\":[\"caller\"],\"logger_encoder_duration\":[\"string\"],\"logger_encoder_encoding\":[\"console\"],\"logger_encoder_level\":[\"capitalColor\"],\"logger_encoder_level_key\":[\"level\"],\"logger_encoder_message_key\":[\"msg\"],\"logger_encoder_name_key\":[\"logger\"],\"logger_encoder_stacktrace_key\":[\"stacktrace\"],\"logger_encoder_time\":[\"iso8601\"],\"logger_encoder_time_key\":[\"ts\"],\"logger_level\":[\"0\"],\"logger_rotate_compress\":[\"false\"],\"logger_rotate_max_age\":[\"30\"],\"logger_rotate_max_backups\":[\"5\"],\"logger_rotate_max_size\":[\"10\"],\"login_logo\":[\"\"],\"login_title\":[\"AssetInfo\"],\"logo\":[\"\\u003cb\\u003eGo\\u003c/b\\u003eAdmin\"],\"mini_logo\":[\"\\u003cb\\u003eG\\u003c/b\\u003eA\"],\"no_limit_login_ip\":[\"false\"],\"operation_log_off\":[\"false\"],\"session_life_time\":[\"72000\"],\"sql_log\":[\"false\"],\"theme\":[\"adminlte\"],\"title\":[\"AssetInfo\"]}', '2022-03-23 16:29:17', '2022-03-23 16:29:17');
-INSERT INTO `goadmin_operation_log` VALUES (35, 1, '/admin/info/site', 'GET', '127.0.0.1', '', '2022-03-23 16:29:19', '2022-03-23 16:29:19');
-INSERT INTO `goadmin_operation_log` VALUES (36, 1, '/admin/info/site/edit', 'GET', '127.0.0.1', '', '2022-03-23 16:29:19', '2022-03-23 16:29:19');
-INSERT INTO `goadmin_operation_log` VALUES (37, 1, '/admin/info/site', 'GET', '127.0.0.1', '', '2022-03-23 16:29:24', '2022-03-23 16:29:24');
-INSERT INTO `goadmin_operation_log` VALUES (38, 1, '/admin/info/site/edit', 'GET', '127.0.0.1', '', '2022-03-23 16:29:24', '2022-03-23 16:29:24');
-INSERT INTO `goadmin_operation_log` VALUES (39, 1, '/admin/info/site/edit', 'GET', '127.0.0.1', '', '2022-03-23 16:29:34', '2022-03-23 16:29:34');
+) ENGINE = InnoDB AUTO_INCREMENT = 328 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for goadmin_permissions
@@ -170,7 +121,7 @@ CREATE TABLE `goadmin_permissions`  (
   `updated_at` timestamp(0) NULL DEFAULT current_timestamp(0),
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `admin_permissions_name_unique`(`name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 52 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 59 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of goadmin_permissions
@@ -226,6 +177,13 @@ INSERT INTO `goadmin_permissions` VALUES (48, 'vul 编辑', 'vul_edit', 'POST', 
 INSERT INTO `goadmin_permissions` VALUES (49, 'vul 新建', 'vul_create', 'POST', '/new/vul', '2022-03-23 16:09:16', '2022-03-23 16:09:16');
 INSERT INTO `goadmin_permissions` VALUES (50, 'vul 删除', 'vul_delete', 'POST', '/delete/vul', '2022-03-23 16:09:16', '2022-03-23 16:09:16');
 INSERT INTO `goadmin_permissions` VALUES (51, 'vul 导出', 'vul_export', 'POST', '/export/vul', '2022-03-23 16:09:16', '2022-03-23 16:09:16');
+INSERT INTO `goadmin_permissions` VALUES (52, 'smallbox 查询', 'smallbox_query', 'GET', '/info/smallbox', '2022-03-25 14:14:27', '2022-03-25 14:14:27');
+INSERT INTO `goadmin_permissions` VALUES (53, 'smallbox 编辑页显示', 'smallbox_show_edit', 'GET', '/info/smallbox/edit', '2022-03-25 14:14:27', '2022-03-25 14:14:27');
+INSERT INTO `goadmin_permissions` VALUES (54, 'smallbox 新建记录页显示', 'smallbox_show_create', 'GET', '/info/smallbox/new', '2022-03-25 14:14:27', '2022-03-25 14:14:27');
+INSERT INTO `goadmin_permissions` VALUES (55, 'smallbox 编辑', 'smallbox_edit', 'POST', '/edit/smallbox', '2022-03-25 14:14:27', '2022-03-25 14:14:27');
+INSERT INTO `goadmin_permissions` VALUES (56, 'smallbox 新建', 'smallbox_create', 'POST', '/new/smallbox', '2022-03-25 14:14:27', '2022-03-25 14:14:27');
+INSERT INTO `goadmin_permissions` VALUES (57, 'smallbox 删除', 'smallbox_delete', 'POST', '/delete/smallbox', '2022-03-25 14:14:27', '2022-03-25 14:14:27');
+INSERT INTO `goadmin_permissions` VALUES (58, 'smallbox 导出', 'smallbox_export', 'POST', '/export/smallbox', '2022-03-25 14:14:27', '2022-03-25 14:14:27');
 
 -- ----------------------------
 -- Table structure for goadmin_role_menu
@@ -250,11 +208,13 @@ INSERT INTO `goadmin_role_menu` VALUES (2, 8, '2019-09-11 10:20:55', '2019-09-11
 INSERT INTO `goadmin_role_menu` VALUES (1, 9, '2022-03-23 16:18:53', '2022-03-23 16:18:53');
 INSERT INTO `goadmin_role_menu` VALUES (1, 10, '2022-03-23 16:19:45', '2022-03-23 16:19:45');
 INSERT INTO `goadmin_role_menu` VALUES (1, 11, '2022-03-23 16:20:39', '2022-03-23 16:20:39');
-INSERT INTO `goadmin_role_menu` VALUES (1, 12, '2022-03-23 16:24:05', '2022-03-23 16:24:05');
-INSERT INTO `goadmin_role_menu` VALUES (1, 13, '2022-03-23 16:24:58', '2022-03-23 16:24:58');
-INSERT INTO `goadmin_role_menu` VALUES (1, 14, '2022-03-23 16:25:50', '2022-03-23 16:25:50');
-INSERT INTO `goadmin_role_menu` VALUES (1, 15, '2022-03-23 16:27:06', '2022-03-23 16:27:06');
-INSERT INTO `goadmin_role_menu` VALUES (1, 16, '2022-03-23 16:27:54', '2022-03-23 16:27:54');
+INSERT INTO `goadmin_role_menu` VALUES (1, 17, '2022-03-24 14:41:16', '2022-03-24 14:41:16');
+INSERT INTO `goadmin_role_menu` VALUES (1, 15, '2022-03-24 14:41:28', '2022-03-24 14:41:28');
+INSERT INTO `goadmin_role_menu` VALUES (1, 16, '2022-03-24 14:41:35', '2022-03-24 14:41:35');
+INSERT INTO `goadmin_role_menu` VALUES (1, 12, '2022-03-24 14:41:46', '2022-03-24 14:41:46');
+INSERT INTO `goadmin_role_menu` VALUES (1, 13, '2022-03-24 14:41:53', '2022-03-24 14:41:53');
+INSERT INTO `goadmin_role_menu` VALUES (1, 14, '2022-03-24 14:42:44', '2022-03-24 14:42:44');
+INSERT INTO `goadmin_role_menu` VALUES (1, 18, '2022-03-25 14:31:11', '2022-03-25 14:31:11');
 
 -- ----------------------------
 -- Table structure for goadmin_role_permissions
@@ -324,24 +284,23 @@ CREATE TABLE `goadmin_session`  (
   `created_at` timestamp(0) NULL DEFAULT current_timestamp(0),
   `updated_at` timestamp(0) NULL DEFAULT current_timestamp(0),
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 99 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of goadmin_session
 -- ----------------------------
-INSERT INTO `goadmin_session` VALUES (1, 'e1ced52d-ab6a-4bb1-a714-9e84820b94af', '{\"user_id\":1}', '2022-03-23 16:12:05', '2022-03-23 16:12:05');
-INSERT INTO `goadmin_session` VALUES (2, '84b6b091-790a-4405-9ce6-03e921e9bdeb', '__csrf_token__', '2022-03-23 16:12:17', '2022-03-23 16:12:17');
-INSERT INTO `goadmin_session` VALUES (3, 'e8d1f2d5-4b37-49d7-b97c-32d47da195d9', '__csrf_token__', '2022-03-23 16:12:22', '2022-03-23 16:12:22');
-INSERT INTO `goadmin_session` VALUES (5, '9a55f016-1d19-4515-8884-19df3a27b9af', '__csrf_token__', '2022-03-23 16:15:29', '2022-03-23 16:15:29');
-INSERT INTO `goadmin_session` VALUES (6, 'a15c366f-8458-45b4-a4fc-999a414aaa0b', '__csrf_token__', '2022-03-23 16:15:32', '2022-03-23 16:15:32');
-INSERT INTO `goadmin_session` VALUES (10, '96328e11-fd3d-42d8-a27c-19745019b02b', '__csrf_token__', '2022-03-23 16:20:39', '2022-03-23 16:20:39');
-INSERT INTO `goadmin_session` VALUES (16, '8352536e-3d08-4358-b5ee-c80d2fb5c562', '__csrf_token__', '2022-03-23 16:27:55', '2022-03-23 16:27:55');
-INSERT INTO `goadmin_session` VALUES (17, '308ef01b-66e4-4b5f-b063-415d440bf136', '__csrf_token__', '2022-03-23 16:27:59', '2022-03-23 16:27:59');
-INSERT INTO `goadmin_session` VALUES (19, 'e1b5cb03-9294-4ece-8c62-673de176dd47', '__csrf_token__', '2022-03-23 16:28:31', '2022-03-23 16:28:31');
-INSERT INTO `goadmin_session` VALUES (21, '623460ba-ffce-4b51-85e4-70b928091363', '__csrf_token__', '2022-03-23 16:29:17', '2022-03-23 16:29:17');
-INSERT INTO `goadmin_session` VALUES (22, '8595ffc5-4106-4768-b288-9afb08e41b97', '__csrf_token__', '2022-03-23 16:29:19', '2022-03-23 16:29:19');
-INSERT INTO `goadmin_session` VALUES (23, 'f22d2575-bf67-4e77-8a36-076a8ff0a557', '__csrf_token__', '2022-03-23 16:29:24', '2022-03-23 16:29:24');
-INSERT INTO `goadmin_session` VALUES (24, 'a797d2c6-3b15-4e53-be25-47b22aecf8d4', '__csrf_token__', '2022-03-23 16:29:34', '2022-03-23 16:29:34');
+INSERT INTO `goadmin_session` VALUES (80, 'ede464fc-f1fa-43db-8841-bb7e22574f2f', '__csrf_token__', '2022-03-24 17:50:53', '2022-03-24 17:50:53');
+INSERT INTO `goadmin_session` VALUES (81, '8415ad5a-f7cd-45c9-b32e-155780426c8f', '__csrf_token__', '2022-03-24 17:50:56', '2022-03-24 17:50:56');
+INSERT INTO `goadmin_session` VALUES (82, '78923997-0ccc-4bad-9ab8-368eed44db48', '{\"user_id\":1}', '2022-03-25 10:37:30', '2022-03-25 10:37:30');
+INSERT INTO `goadmin_session` VALUES (84, 'e1d20112-d38c-47f3-ae6c-a03890961601', '__csrf_token__', '2022-03-25 11:15:29', '2022-03-25 11:15:29');
+INSERT INTO `goadmin_session` VALUES (85, '32f3809a-b511-458c-b4ae-9f28271b8eef', '__csrf_token__', '2022-03-25 11:15:35', '2022-03-25 11:15:35');
+INSERT INTO `goadmin_session` VALUES (86, 'e461edbc-9b9e-4997-aacc-666a3ea718d5', '__csrf_token__', '2022-03-25 14:30:36', '2022-03-25 14:30:36');
+INSERT INTO `goadmin_session` VALUES (88, '7936d7c4-5250-460e-b0aa-9dc80a47decc', '__csrf_token__', '2022-03-25 14:31:11', '2022-03-25 14:31:11');
+INSERT INTO `goadmin_session` VALUES (89, 'f65aeb05-3762-409c-b06d-4fd3696f6adb', '__csrf_token__', '2022-03-25 14:31:32', '2022-03-25 14:31:32');
+INSERT INTO `goadmin_session` VALUES (90, 'd6d95a18-f895-430c-84f3-cc0519d75bd0', '__csrf_token__', '2022-03-25 14:32:18', '2022-03-25 14:32:18');
+INSERT INTO `goadmin_session` VALUES (91, 'b1ab7193-ad51-44ca-9f4d-fb4d1a738f29', '__csrf_token__', '2022-03-25 14:47:43', '2022-03-25 14:47:43');
+INSERT INTO `goadmin_session` VALUES (92, '8719f995-0abc-4a40-9c4c-a70e68020256', '__csrf_token__', '2022-03-25 15:00:20', '2022-03-25 15:00:20');
+INSERT INTO `goadmin_session` VALUES (94, '30e32e9d-2c97-49ed-9ef3-abc74e1927a4', '__csrf_token__', '2022-03-25 15:06:07', '2022-03-25 15:06:07');
 
 -- ----------------------------
 -- Table structure for goadmin_site
@@ -423,8 +382,8 @@ INSERT INTO `goadmin_site` VALUES (59, 'logger_encoder_duration', 'string', NULL
 INSERT INTO `goadmin_site` VALUES (60, 'asset_url', '', NULL, 1, '2022-03-23 16:11:26', '2022-03-23 16:11:26');
 INSERT INTO `goadmin_site` VALUES (61, 'no_limit_login_ip', 'false', NULL, 1, '2022-03-23 16:11:26', '2022-03-23 16:11:26');
 INSERT INTO `goadmin_site` VALUES (62, 'logger_encoder_name_key', 'logger', NULL, 1, '2022-03-23 16:11:26', '2022-03-23 16:11:26');
-INSERT INTO `goadmin_site` VALUES (63, 'logo', '<b>Go</b>Admin', NULL, 1, '2022-03-23 16:11:26', '2022-03-23 16:11:26');
-INSERT INTO `goadmin_site` VALUES (64, 'mini_logo', '<b>G</b>A', NULL, 1, '2022-03-23 16:11:26', '2022-03-23 16:11:26');
+INSERT INTO `goadmin_site` VALUES (63, 'logo', '        <b>Asset</b>Info\n    ', NULL, 1, '2022-03-23 16:11:26', '2022-03-23 16:11:26');
+INSERT INTO `goadmin_site` VALUES (64, 'mini_logo', '        <b>Assets</b>\n    ', NULL, 1, '2022-03-23 16:11:26', '2022-03-23 16:11:26');
 INSERT INTO `goadmin_site` VALUES (65, 'info_log_path', 'E:/github/AssetInfo/logs/info.log', NULL, 1, '2022-03-23 16:11:26', '2022-03-23 16:11:26');
 INSERT INTO `goadmin_site` VALUES (66, 'access_log_off', 'false', NULL, 1, '2022-03-23 16:11:26', '2022-03-23 16:11:26');
 INSERT INTO `goadmin_site` VALUES (67, 'logger_encoder_time', 'iso8601', NULL, 1, '2022-03-23 16:11:26', '2022-03-23 16:11:26');
@@ -468,7 +427,7 @@ CREATE TABLE `goadmin_users`  (
 -- ----------------------------
 -- Records of goadmin_users
 -- ----------------------------
-INSERT INTO `goadmin_users` VALUES (1, 'admin', '$2a$10$.ObIFGjNCYuvNidQjmf/D.6NlmJI.OwVnMcc6nTZhaylnaONloNl6', 'admin', '', 'tlNcBVK9AvfYH7WEnwB1RKvocJu8FfRy4um3DJtwdHuJy0dwFsLOgAc0xUfh', '2019-09-10 00:00:00', '2019-09-10 00:00:00');
+INSERT INTO `goadmin_users` VALUES (1, 'admin', '$2a$10$NdpSqa0ZML9aJ/wn1tN1UOnHKjDmwqMxq/PUn6VpNmUpeJhNSZFci', 'admin', '', 'tlNcBVK9AvfYH7WEnwB1RKvocJu8FfRy4um3DJtwdHuJy0dwFsLOgAc0xUfh', '2019-09-10 00:00:00', '2019-09-10 00:00:00');
 INSERT INTO `goadmin_users` VALUES (2, 'operator', '$2a$10$rVqkOzHjN2MdlEprRflb1eGP0oZXuSrbJLOmJagFsCd81YZm0bsh.', 'Operator', '', NULL, '2019-09-10 00:00:00', '2019-09-10 00:00:00');
 
 -- ----------------------------
@@ -483,11 +442,7 @@ CREATE TABLE `leak`  (
   `created_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '创建时间',
   `updated_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of leak
--- ----------------------------
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for protocols
@@ -500,11 +455,39 @@ CREATE TABLE `protocols`  (
   `updated_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `protocol`(`protocol`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of protocols
 -- ----------------------------
+INSERT INTO `protocols` VALUES (1, 'SSH', '0000-00-00 00:00:00', '2022-03-23 17:53:11');
+INSERT INTO `protocols` VALUES (2, 'Telnet', '2022-03-24 14:38:20', '2022-03-24 14:38:20');
+
+-- ----------------------------
+-- Table structure for smallbox
+-- ----------------------------
+DROP TABLE IF EXISTS `smallbox`;
+CREATE TABLE `smallbox`  (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '标题',
+  `icon` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT 'icon',
+  `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT 'URL',
+  `color` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '颜色',
+  `table` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '数据表',
+  `query` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '查询语句',
+  `status` tinyint(1) UNSIGNED ZEROFILL NOT NULL COMMENT '状态',
+  `created_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '创建时间',
+  `updated_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of smallbox
+-- ----------------------------
+INSERT INTO `smallbox` VALUES (1, '资产', 'ion-ios-gear-outline', '/admin/info/assets', '#ff0000', 'assets', '', 1, '2022-03-25 15:05:42', '2022-03-25 15:05:42');
+INSERT INTO `smallbox` VALUES (2, '软件', 'ion-ios-cart-outline', '/admin/info/software_list', '#ffff00', 'software_list', '', 1, '2022-03-25 15:08:07', '2022-03-25 15:08:07');
+INSERT INTO `smallbox` VALUES (3, '漏洞', 'fa-user', '/admin/info/vul', '#ff0000', 'vul', '', 1, '2022-03-25 15:09:21', '2022-03-25 15:09:21');
+INSERT INTO `smallbox` VALUES (4, '待确认', 'ion-ios-cart-outline', '/admin/info/leak', '', 'leak', 'result = 3', 1, '2022-03-25 15:10:13', '2022-03-25 15:10:13');
 
 -- ----------------------------
 -- Table structure for software
@@ -517,11 +500,12 @@ CREATE TABLE `software`  (
   `updated_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `name`(`name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of software
 -- ----------------------------
+INSERT INTO `software` VALUES (1, 'OpenSSL', '2022-03-24 14:43:40', '2022-03-24 14:43:40');
 
 -- ----------------------------
 -- Table structure for software_list
@@ -553,10 +537,11 @@ CREATE TABLE `vul`  (
   `updated_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `name`(`name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of vul
 -- ----------------------------
+INSERT INTO `vul` VALUES (1, 'CVE-2022-0778', '3.0.0、3.0.1、1.1.1-1.1.1m、1.0.2-1.0.2zc', '2022-03-24 14:46:15', '2022-03-24 14:46:15');
 
 SET FOREIGN_KEY_CHECKS = 1;

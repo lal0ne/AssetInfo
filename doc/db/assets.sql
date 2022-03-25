@@ -105,3 +105,23 @@ CREATE TABLE `leak` (
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+# Dump of table smallbox
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `smallbox`;
+
+CREATE TABLE `smallbox` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `title` varchar(255) COLLATE utf8_unicode_ci NULL COMMENT '标题',
+  `icon` varchar(255) COLLATE utf8_unicode_ci NULL COMMENT 'icon',
+  `url` varchar(255) COLLATE utf8_unicode_ci NULL COMMENT 'URL',
+  `color` varchar(255) COLLATE utf8_unicode_ci NULL COMMENT '颜色',
+  `table` varchar(255) COLLATE utf8_unicode_ci NULL COMMENT '数据表',
+  `query` varchar(255) COLLATE utf8_unicode_ci NULL COMMENT '查询语句',
+  `status` tinyint(1) COLLATE utf8_unicode_ci NO NULL DEFAULT 0 COMMENT '查询ID',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
