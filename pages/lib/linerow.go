@@ -2,7 +2,6 @@ package lib
 
 import (
 	"AssetInfo/models"
-	"fmt"
 	"github.com/GoAdminGroup/go-admin/modules/db"
 	tmpl "github.com/GoAdminGroup/go-admin/template"
 	"github.com/GoAdminGroup/go-admin/template/chartjs"
@@ -70,7 +69,6 @@ func getRecentlyData(table string, recentlyTimeList []string) []float64 {
 		ptime := recentlyTime + " 00:00:00"
 		ntime := recentlyTime + " 23:59:59"
 		query := "updated_at >= \"" + ptime + "\" and updated_at <= \"" + ntime + "\""
-		fmt.Println(query)
 		data, err := db.WithDriver(models.GlobalConn).Table(table).WhereRaw(query).Count()
 		if err != nil {
 			result = append(result, 0)
