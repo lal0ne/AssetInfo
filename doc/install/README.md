@@ -23,6 +23,6 @@ mv adm.example.ini adm.ini
 ## 运行项目
 
 ```
-go run .
+go run main.go
 ```
 

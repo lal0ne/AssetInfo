@@ -66,7 +66,7 @@ CREATE TABLE `goadmin_menu`  (
   `created_at` timestamp(0) NULL DEFAULT current_timestamp(0),
   `updated_at` timestamp(0) NULL DEFAULT current_timestamp(0),
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of goadmin_menu
@@ -88,7 +88,12 @@ INSERT INTO `goadmin_menu` VALUES (14, 0, 0, 2, '软件信息', 'fa-book', '', '
 INSERT INTO `goadmin_menu` VALUES (15, 17, 0, 2, '漏洞', 'fa-wrench', '/info/vul', '', '', NULL, '2022-03-23 16:27:06', '2022-03-24 14:41:29');
 INSERT INTO `goadmin_menu` VALUES (16, 17, 0, 2, '检测结果', 'fa-resistance', '/info/leak', '', '', NULL, '2022-03-23 16:27:54', '2022-03-24 14:41:35');
 INSERT INTO `goadmin_menu` VALUES (17, 0, 0, 2, '漏洞检测', 'fa-bug', '', '', '', NULL, '2022-03-24 14:41:16', '2022-03-24 14:41:16');
-INSERT INTO `goadmin_menu` VALUES (18, 0, 0, 2, '设置', 'fa-cog', '/info/smallbox', '', '', NULL, '2022-03-25 11:15:29', '2022-03-25 14:31:10');
+INSERT INTO `goadmin_menu` VALUES (18, 0, 0, 2, '设置', 'fa-cog', '', '仪表盘', '', NULL, '2022-03-25 11:15:29', '2022-03-28 15:43:54');
+INSERT INTO `goadmin_menu` VALUES (19, 18, 0, 2, 'SmallBox', 'fa-bookmark-o', '/info/smallbox', '', '', NULL, '2022-03-28 15:39:04', '2022-03-28 15:39:04');
+INSERT INTO `goadmin_menu` VALUES (20, 18, 0, 2, 'LineBox', 'fa-bookmark', '/info/linelbox', '', '', NULL, '2022-03-28 16:51:40', '2022-03-28 16:51:40');
+
+SET FOREIGN_KEY_CHECKS = 1;
+
 
 -- ----------------------------
 -- Table structure for goadmin_operation_log
@@ -543,5 +548,33 @@ CREATE TABLE `vul`  (
 -- Records of vul
 -- ----------------------------
 INSERT INTO `vul` VALUES (1, 'CVE-2022-0778', '3.0.0、3.0.1、1.1.1-1.1.1m、1.0.2-1.0.2zc', '2022-03-24 14:46:15', '2022-03-24 14:46:15');
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+
+-- ----------------------------
+-- Table structure for linelbox
+-- ----------------------------
+DROP TABLE IF EXISTS `linelbox`;
+CREATE TABLE `linelbox`  (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '标题',
+  `color` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '颜色',
+  `table` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '数据表',
+  `line_tension` int(5) NOT NULL DEFAULT 1 COMMENT '光滑度',
+  `fill` tinyint(1) NOT NULL DEFAULT 0 COMMENT '填充',
+  `status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '状态',
+  `created_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '创建时间',
+  `updated_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of linelbox
+-- ----------------------------
+INSERT INTO `linelbox` VALUES (1, '资产', '#99cc00', 'assets', 1, 0, 1, '2022-03-28 16:53:07', '2022-03-28 16:53:07');
+INSERT INTO `linelbox` VALUES (2, '软件', '#00994d', 'software_list', 1, 0, 1, '2022-03-28 16:56:35', '2022-03-28 16:56:35');
+INSERT INTO `linelbox` VALUES (3, '漏洞', '#ff6500', 'vul', 1, 0, 1, '2022-03-28 16:57:23', '2022-03-28 16:57:23');
+INSERT INTO `linelbox` VALUES (4, '漏洞检测', '#e30039', 'leak', 1, 0, 1, '2022-03-28 16:57:52', '2022-03-28 16:57:52');
 
 SET FOREIGN_KEY_CHECKS = 1;

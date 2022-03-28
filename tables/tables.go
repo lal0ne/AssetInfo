@@ -20,6 +20,7 @@ import "github.com/GoAdminGroup/go-admin/plugins/admin/modules/table"
 // "software_list" => http://localhost:9033/admin/info/software_list
 // "vul" => http://localhost:9033/admin/info/vul
 // "smallbox" => http://localhost:9033/admin/info/smallbox
+// "linelbox" => http://localhost:9033/admin/info/linelbox
 //
 // example end
 //
@@ -33,6 +34,7 @@ var Generators = map[string]table.Generator{
 	"software_list": GetSoftwareListTable,
 	"vul":           GetVulTable,
 	"smallbox":      GetSmallboxTable,
+	"linelbox":      GetLinelboxTable,
 
 	// generators end
 }

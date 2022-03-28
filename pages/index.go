@@ -20,6 +20,11 @@ func GetDashBoard(ctx *context.Context) (types.Panel, error) {
 		row += components.Row().SetContent(col).GetContent()
 	}
 
+	col, err = lib.GetLineBox(colComp)
+	if err == nil {
+		row += components.Row().SetContent(col).GetContent()
+	}
+
 	// 面板
 	return types.Panel{
 		Content:     row,

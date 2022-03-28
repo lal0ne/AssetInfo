@@ -120,7 +120,26 @@ CREATE TABLE `smallbox` (
   `color` varchar(255) COLLATE utf8_unicode_ci NULL COMMENT '颜色',
   `table` varchar(255) COLLATE utf8_unicode_ci NULL COMMENT '数据表',
   `query` varchar(255) COLLATE utf8_unicode_ci NULL COMMENT '查询语句',
-  `status` tinyint(1) COLLATE utf8_unicode_ci NO NULL DEFAULT 0 COMMENT '查询ID',
+  `status` tinyint(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 0 COMMENT '状态',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+# Dump of table linebox
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `linelbox`;
+
+CREATE TABLE `linelbox` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `title` varchar(255) COLLATE utf8_unicode_ci NULL COMMENT '标题',
+  `color` varchar(255) COLLATE utf8_unicode_ci NULL COMMENT '颜色',
+  `table` varchar(255) COLLATE utf8_unicode_ci NULL COMMENT '数据表',
+  `line_tension` int(5) COLLATE utf8_unicode_ci NOT NULL DEFAULT 1 COMMENT '光滑度',
+  `fill` tinyint(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 0 COMMENT '填充',
+  `status` tinyint(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 0 COMMENT '状态',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`)
