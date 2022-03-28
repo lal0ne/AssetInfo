@@ -42,7 +42,7 @@ func GetSmallboxTable(ctx *context.Context) table.Table {
 	info.AddField("创建日期", "created_at", db.Timestamp).FieldHide()
 	info.AddField("更新日期", "updated_at", db.Timestamp)
 
-	info.SetTable("smallbox").SetTitle("设置").SetDescription("仪表盘")
+	info.SetTable("smallbox").SetTitle("仪表盘").SetDescription("SmallBox")
 
 	formList := smallbox.GetForm()
 	formList.AddField("ID", "id", db.Int, form.Default).FieldDisplayButCanNotEditWhenUpdate().FieldNotAllowAdd()
@@ -60,7 +60,7 @@ func GetSmallboxTable(ctx *context.Context) table.Table {
 	formList.AddField("创建日期", "created_at", db.Timestamp, form.Datetime).FieldDisplayButCanNotEditWhenUpdate().FieldNotAllowAdd()
 	formList.AddField("更新日期", "updated_at", db.Timestamp, form.Datetime).FieldNotAllowAdd()
 
-	formList.SetTable("smallbox").SetTitle("设置").SetDescription("仪表盘")
+	formList.SetTable("smallbox").SetTitle("仪表盘").SetDescription("SmallBox")
 
 	return smallbox
 }

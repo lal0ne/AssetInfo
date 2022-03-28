@@ -53,7 +53,7 @@ func GetLinelboxTable(ctx *context.Context) table.Table {
 	info.AddField("创建时间", "created_at", db.Timestamp).FieldHide()
 	info.AddField("更新时间", "updated_at", db.Timestamp)
 
-	info.SetTable("linelbox").SetTitle("Linelbox").SetDescription("Linelbox")
+	info.SetTable("linelbox").SetTitle("仪表盘").SetDescription("Linelbox")
 
 	formList := linelbox.GetForm()
 	formList.AddField("ID", "id", db.Int, form.Default).FieldDisplayButCanNotEditWhenUpdate().FieldNotAllowAdd()
@@ -84,7 +84,7 @@ func GetLinelboxTable(ctx *context.Context) table.Table {
 	formList.AddField("创建时间", "created_at", db.Timestamp, form.Datetime).FieldDisplayButCanNotEditWhenUpdate().FieldNotAllowAdd()
 	formList.AddField("更新时间", "updated_at", db.Timestamp, form.Datetime).FieldNotAllowAdd()
 
-	formList.SetTable("linelbox").SetTitle("Linelbox").SetDescription("Linelbox")
+	formList.SetTable("linelbox").SetTitle("仪表盘").SetDescription("Linelbox")
 
 	return linelbox
 }
