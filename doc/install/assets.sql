@@ -327,7 +327,7 @@ CREATE TABLE `goadmin_site`  (
 -- ----------------------------
 INSERT INTO `goadmin_site` VALUES (1, 'logger_rotate_compress', 'false', NULL, 1, '2022-03-23 16:11:26', '2022-03-23 16:11:26');
 INSERT INTO `goadmin_site` VALUES (2, 'error_log_off', 'false', NULL, 1, '2022-03-23 16:11:26', '2022-03-23 16:11:26');
-INSERT INTO `goadmin_site` VALUES (3, 'theme', 'adminlte', NULL, 1, '2022-03-23 16:11:26', '2022-03-23 16:11:26');
+INSERT INTO `goadmin_site` VALUES (3, 'theme', 'adminlte_sep', NULL, 1, '2022-03-23 16:11:26', '2022-03-23 16:11:26');
 INSERT INTO `goadmin_site` VALUES (4, 'env', 'local', NULL, 1, '2022-03-23 16:11:26', '2022-03-23 16:11:26');
 INSERT INTO `goadmin_site` VALUES (5, 'login_logo', '', NULL, 1, '2022-03-23 16:11:26', '2022-03-23 16:11:26');
 INSERT INTO `goadmin_site` VALUES (6, 'animation_delay', '0.00', NULL, 1, '2022-03-23 16:11:26', '2022-03-23 16:11:26');

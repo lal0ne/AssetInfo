@@ -10,6 +10,7 @@ import (
 	_ "github.com/GoAdminGroup/go-admin/adapter/gin"              // web framework adapter
 	_ "github.com/GoAdminGroup/go-admin/modules/db/drivers/mysql" // sql driver
 	_ "github.com/GoAdminGroup/themes/adminlte"                   // ui theme
+	_ "github.com/GoAdminGroup/themes/adminlte/separation"
 
 	"github.com/GoAdminGroup/go-admin/engine"
 	"github.com/GoAdminGroup/go-admin/template"
@@ -44,9 +45,9 @@ func startServer() {
 	r.Static("/uploads", "./uploads")
 
 	eng.HTML("GET", "/admin", pages.GetDashBoard)
-	eng.HTMLFile("GET", "/admin/hello", "./html/hello.tmpl", map[string]interface{}{
-		"msg": "Hello world",
-	})
+	//eng.HTMLFile("GET", "/admin/hello", "./html/hello.tmpl", map[string]interface{}{
+	//	"msg": "Hello world",
+	//})
 
 	models.Init(eng.MysqlConnection())
 
