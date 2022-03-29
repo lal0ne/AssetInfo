@@ -5,6 +5,7 @@
 *.so
 *.dylib
 *.txt
+*.back
 
 ### conf ###
 config.yml
