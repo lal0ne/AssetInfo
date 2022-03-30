@@ -70,7 +70,7 @@ func GetLinelboxTable(ctx *context.Context) table.Table {
 				return value.Value[0]
 			}
 			return "1"
-		}).FieldHelpMsg("1-10，数字越大，曲线越光滑")
+		}).FieldDefault("1").FieldHelpMsg("1-10，数字越大，曲线越光滑")
 	formList.AddField("填充", "fill", db.Tinyint, form.Radio).
 		FieldOptions(types.FieldOptions{
 			{Text: "否", Value: "0"},
