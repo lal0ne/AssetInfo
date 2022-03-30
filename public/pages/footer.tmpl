@@ -6,9 +6,11 @@
         <div class="pull-right hidden-xs">
             <b>Theme</b> {{.System.Theme}}&nbsp;&nbsp;
         </div>
-        {{if not .FooterInfo}}
-            <strong>Powered by <a href="https://github.com/GoAdminGroup/go-admin">GoAdmin</a>.</strong>
-        {{end}}
-        {{.FooterInfo}}
+        <strong>Powered by
+            {{if not .FooterInfo}}
+                Powered by <a href="https://github.com/GoAdminGroup/go-admin">GoAdmin</a>.
+            {{end}}
+            {{.FooterInfo}}
+        </strong>
     </footer>
 {{end}}
