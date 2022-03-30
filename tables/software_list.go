@@ -84,7 +84,7 @@ func GetSoftwareListTable(ctx *context.Context) table.Table {
 				{Value: val.Value, Text: data["name"].(string), Selected: true},
 			}
 		})
-	formList.AddField("版本", "version", db.Varchar, form.Text)
+	formList.AddField("版本", "version", db.Varchar, form.Text).FieldTrimSpace()
 	formList.AddField("创建日期", "created_at", db.Timestamp, form.Datetime).FieldDisplayButCanNotEditWhenUpdate().FieldNotAllowAdd()
 	formList.AddField("更新日期", "updated_at", db.Timestamp, form.Datetime).FieldNotAllowAdd()
 

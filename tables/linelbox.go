@@ -58,8 +58,8 @@ func GetLinelboxTable(ctx *context.Context) table.Table {
 	formList := linelbox.GetForm()
 	formList.AddField("ID", "id", db.Int, form.Default).FieldDisplayButCanNotEditWhenUpdate().FieldNotAllowAdd()
 	formList.AddField("名称", "title", db.Varchar, form.Text)
-	formList.AddField("颜色", "color", db.Varchar, form.Color)
-	formList.AddField("数据表", "table", db.Varchar, form.Text)
+	formList.AddField("颜色", "color", db.Varchar, form.Color).FieldTrimSpace()
+	formList.AddField("数据表", "table", db.Varchar, form.Text).FieldTrimSpace()
 	formList.AddField("光滑度", "line_tension", db.Int, form.Number).
 		FieldPostFilterFn(func(value types.PostFieldModel) interface{} {
 			v, err := strconv.Atoi(value.Value[0])

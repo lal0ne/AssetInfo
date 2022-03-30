@@ -73,7 +73,7 @@ func GetVulTable(ctx *context.Context) table.Table {
 				{Value: val.Value, Text: data["name"].(string), Selected: true},
 			}
 		})
-	formList.AddField("名称", "name", db.Varchar, form.Text)
+	formList.AddField("名称", "name", db.Varchar, form.Text).FieldTrimSpace()
 	formList.AddField("影响范围", "scope", db.Varchar, form.Text).
 		FieldHelpMsg("以中文 、 做分割").
 		FieldPostFilterFn(func(value types.PostFieldModel) interface{} {
@@ -89,7 +89,7 @@ func GetVulTable(ctx *context.Context) table.Table {
 				allValue = strings.ReplaceAll(allValue, "\r\n", "、")
 			}
 			return allValue
-		})
+		}).FieldTrimSpace()
 	formList.AddField("创建日期", "created_at", db.Timestamp, form.Datetime).FieldDisplayButCanNotEditWhenUpdate().FieldNotAllowAdd()
 	formList.AddField("更新日期", "updated_at", db.Timestamp, form.Datetime).FieldNotAllowAdd()
 

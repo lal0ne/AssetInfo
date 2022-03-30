@@ -25,7 +25,7 @@ func GetProtocolsTable(ctx *context.Context) table.Table {
 
 	formList := protocols.GetForm()
 	formList.AddField("ID", "id", db.Int, form.Default).FieldDisplayButCanNotEditWhenUpdate().FieldNotAllowAdd()
-	formList.AddField("协议", "protocol", db.Varchar, form.Text)
+	formList.AddField("协议", "protocol", db.Varchar, form.Text).FieldTrimSpace()
 	formList.AddField("创建日期", "created_at", db.Timestamp, form.Datetime).FieldDisplayButCanNotEditWhenUpdate().FieldNotAllowAdd()
 	formList.AddField("更新日期", "updated_at", db.Timestamp, form.Datetime).FieldNotAllowAdd()
 

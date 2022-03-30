@@ -46,12 +46,12 @@ func GetSmallboxTable(ctx *context.Context) table.Table {
 
 	formList := smallbox.GetForm()
 	formList.AddField("ID", "id", db.Int, form.Default).FieldDisplayButCanNotEditWhenUpdate().FieldNotAllowAdd()
-	formList.AddField("标题", "title", db.Varchar, form.Text)
-	formList.AddField("ICON", "icon", db.Varchar, form.Text).FieldHelpMsg("SmallBox中Icon属性")
-	formList.AddField("URL", "url", db.Varchar, form.Text)
-	formList.AddField("颜色", "color", db.Varchar, form.Text)
-	formList.AddField("数据表", "table", db.Varchar, form.Text)
-	formList.AddField("查询", "query", db.Varchar, form.Text).FieldHelpMsg("针对以上数据库的查询语句，默认为空")
+	formList.AddField("标题", "title", db.Varchar, form.Text).FieldTrimSpace()
+	formList.AddField("ICON", "icon", db.Varchar, form.Text).FieldHelpMsg("SmallBox中Icon属性").FieldTrimSpace()
+	formList.AddField("URL", "url", db.Varchar, form.Text).FieldTrimSpace()
+	formList.AddField("颜色", "color", db.Varchar, form.Text).FieldTrimSpace()
+	formList.AddField("数据表", "table", db.Varchar, form.Text).FieldTrimSpace()
+	formList.AddField("查询", "query", db.Varchar, form.Text).FieldHelpMsg("针对以上数据库的查询语句，默认为空").FieldTrimSpace()
 	formList.AddField("状态", "status", db.Tinyint, form.Radio).
 		FieldOptions(types.FieldOptions{
 			{Text: "禁用", Value: "0"},
