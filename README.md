@@ -8,7 +8,7 @@
 
 ## 仪表盘
 
-![image-20220330174947756](./doc/images/image-20220330174947756.png)
+![仪表盘](./doc/images/image-20220330174947756.png)
 
 ## 设置
 
@@ -16,17 +16,17 @@
 
 ### SmallBox
 
-![image-20220330175047835](./doc/images/image-20220330175047835.png)
+![SmallBox](./doc/images/image-20220330175047835.png)
 
 ### LineBox
 
-![image-20220330175144993](./doc/images/image-20220330175144993.png)
+![LineBox](./doc/images/image-20220330175144993.png)
 
 ## 资产信息
 
 先创建 `资产组` 和 `协议` (资产系统登录方式)
 
-![image-20220330175439076](./doc/images/image-20220330175439076.png)
+![资产信息](./doc/images/image-20220330175439076.png)
 
 ## 软件信息
 
@@ -34,11 +34,11 @@
 
 资产和使用软件关联起来
 
-![image-20220330175609492](./doc/images/image-20220330175609492.png)
+![软件信息](./doc/images/image-20220330175609492.png)
 
 ## 漏洞检测
 
-![](./doc/images/image-20220330175810478.png)
+![漏洞检测](./doc/images/image-20220330175810478.png)
 
 ## 吐槽
 
