@@ -13,7 +13,7 @@ func GetSoftwareListTable(ctx *context.Context) table.Table {
 
 	softwareList := table.NewDefaultTable(table.DefaultConfigWithDriver("mysql"))
 
-	info := softwareList.GetInfo().SetFilterFormLayout(form.LayoutThreeCol)
+	info := softwareList.GetInfo().SetFilterFormLayout(form.LayoutThreeCol).HideFilterArea()
 
 	info.AddField("ID", "id", db.Int).FieldSortable()
 	info.AddField("资产", "assets_id", db.Int).FieldDisplay(func(model types.FieldModel) interface{} {

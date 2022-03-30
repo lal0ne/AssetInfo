@@ -14,7 +14,7 @@ func GetLeakTable(ctx *context.Context) table.Table {
 
 	leak := table.NewDefaultTable(table.DefaultConfigWithDriver("mysql"))
 
-	info := leak.GetInfo().SetFilterFormLayout(form.LayoutThreeCol)
+	info := leak.GetInfo().SetFilterFormLayout(form.LayoutThreeCol).HideFilterArea()
 
 	info.AddField("ID", "id", db.Int).FieldSortable()
 	info.AddField("资产", "assets_id", db.Int).FieldDisplay(func(model types.FieldModel) interface{} {

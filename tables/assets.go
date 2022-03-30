@@ -15,7 +15,7 @@ func GetAssetsTable(ctx *context.Context) table.Table {
 
 	assets := table.NewDefaultTable(table.DefaultConfigWithDriver("mysql"))
 
-	info := assets.GetInfo().SetFilterFormLayout(form.LayoutThreeCol)
+	info := assets.GetInfo().HideFilterArea().SetFilterFormLayout(form.LayoutThreeCol)
 
 	// 倒序
 	info.SetSortDesc()
