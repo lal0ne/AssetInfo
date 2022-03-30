@@ -42,7 +42,7 @@ func GatAllSoftware() types.FieldOptions {
 		return data
 	}
 	for _, software := range softwares {
-		data = append(data, types.FieldOption{Text: software["group"].(string), Value: strconv.FormatInt(software["id"].(int64), 10)})
+		data = append(data, types.FieldOption{Text: software["name"].(string), Value: strconv.FormatInt(software["id"].(int64), 10)})
 	}
 	return data
 }
