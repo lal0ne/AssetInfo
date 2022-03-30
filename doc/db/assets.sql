@@ -83,6 +83,7 @@ DROP TABLE IF EXISTS `vul`;
 
 CREATE TABLE `vul` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `software_id` int(11) COLLATE utf8_unicode_ci NULL COMMENT '软件ID',
   `name` varchar(255) UNIQUE COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '编号',
   `scope` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '影响范围',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',

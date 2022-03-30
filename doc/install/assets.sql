@@ -536,6 +536,7 @@ CREATE TABLE `software_list`  (
 DROP TABLE IF EXISTS `vul`;
 CREATE TABLE `vul`  (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `software_id` int(11) COLLATE utf8_unicode_ci NULL COMMENT '软件ID',
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '编号',
   `scope` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '影响范围',
   `created_at` timestamp(0) NULL DEFAULT current_timestamp(0) COMMENT '创建时间',
@@ -547,7 +548,7 @@ CREATE TABLE `vul`  (
 -- ----------------------------
 -- Records of vul
 -- ----------------------------
-INSERT INTO `vul` VALUES (1, 'CVE-2022-0778', '3.0.0、3.0.1、1.1.1-1.1.1m、1.0.2-1.0.2zc', '2022-03-24 14:46:15', '2022-03-24 14:46:15');
+INSERT INTO `vul` VALUES (1, 1, 'CVE-2022-0778', '3.0.0、3.0.1、1.1.1-1.1.1m、1.0.2-1.0.2zc', '2022-03-24 14:46:15', '2022-03-24 14:46:15');
 
 SET FOREIGN_KEY_CHECKS = 1;
 

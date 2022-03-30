@@ -45,9 +45,18 @@ func startServer() {
 	r.Static("/uploads", "./uploads")
 
 	eng.HTML("GET", "/admin", pages.GetDashBoard)
-	//eng.HTMLFile("GET", "/admin/hello", "./html/hello.tmpl", map[string]interface{}{
-	//	"msg": "Hello world",
+	//eng.HTMLFile(
+	//	"GET",
+	//	"/admin/hello",
+	//	"./html/hello.tmpl",
+	//	map[string]interface{}{
+	//		"msg": "Hello world",
 	//})
+	//eng.Data(
+	//	"GET",
+	//	"/admin/data/:id",
+	//	handlers.AutoCheck,
+	//)
 
 	models.Init(eng.MysqlConnection())
 
